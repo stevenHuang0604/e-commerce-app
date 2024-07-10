@@ -1,0 +1,16 @@
+{
+  "name": "e-commerce-app",
+  "version": "1.0.0",
+  "description": "E-Commerce App",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "sass": "sass --watch src/sass:src/css",
+    "format": "prettier . --write"
+  },
+  "author": "Steven Huang",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.77.6"
+  }
+}

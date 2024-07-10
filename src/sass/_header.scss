@@ -1,0 +1,124 @@
+.header {
+  padding: 4rem 4rem;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+}
+
+.search {
+  background-color: $color-white;
+  border-radius: 10rem;
+  padding-left: 3rem;
+  box-shadow: 0 0.7rem 3rem rgba($color-black, 0.08);
+
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+
+  &:focus-within {
+    transform: translateY(-2px);
+  }
+
+  &__field {
+    font-family: inherit;
+    font-size: 1.7rem;
+    width: 30rem;
+    color: inherit;
+    background: none;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-grey-light-3;
+    }
+  }
+
+  &__btn {
+    font-family: inherit;
+    font-weight: 600;
+  }
+}
+
+.nav {
+  align-self: stretch;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__btn {
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: inherit;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 1.5rem;
+    transition: all 0.2s;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: currentColor;
+      height: 2.4rem;
+      width: 2.4rem;
+      margin-right: 0.7rem;
+      transform: translateY(-1px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-grey-light-2;
+    }
+  }
+}
+
+.bookmarks {
+  background-color: $color-white;
+  width: 40rem;
+  padding: 1rem 0;
+  box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
+  z-index: 10;
+
+  position: absolute;
+  right: -2.5rem;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s 0.2s;
+
+  &__list {
+    list-style: none;
+  }
+
+  &:hover,
+  .nav__btn--bookmarks:hover + & {
+    visibility: visible;
+    opacity: 1;
+  }
+}

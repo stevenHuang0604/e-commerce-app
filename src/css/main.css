@@ -184,7 +184,7 @@ body {
 
 .aside {
   padding: 5rem 2.5rem;
-  flex-basis: 20%;
+  flex-basis: 15%;
 }
 .aside__heading {
   font-size: 2.4rem;
@@ -219,6 +219,10 @@ body {
   grid-column: 2/3;
   grid-row: 3/-1;
 }
+.filter__item--label {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
 .filter__item--label-1 {
   grid-column: 3/-1;
   grid-row: 2/3;
@@ -231,6 +235,115 @@ body {
 .search-results {
   flex: 1;
   padding: 5rem;
+}
+
+.results {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 0));
+  gap: 4rem;
+}
+.results::-webkit-scrollbar {
+  width: 6px;
+}
+.results::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 20px;
+}
+.results::-webkit-scrollbar-thumb {
+  background-color: #d3c7c3;
+}
+
+.preview__link:link, .preview__link:visited {
+  color: inherit;
+  height: max-content;
+  background-color: #f9f5f3;
+  padding: 1rem;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: 0 0.7rem 3rem rgba(28, 25, 23, 0.08);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.preview__link:hover {
+  background-color: #f2efee;
+  transform: translateY(-3px);
+}
+.preview__link--active {
+  background-color: #f2efee;
+}
+.preview__fig {
+  height: 20rem;
+}
+.preview__fig img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+.preview__data {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.preview__brand {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #918581;
+}
+.preview__title {
+  font-size: 2.8rem;
+  letter-spacing: 0.5px;
+}
+.preview__price {
+  width: max-content;
+  line-height: 1;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: grid;
+  align-items: end;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.preview__price-sell {
+  font-size: 2.4rem;
+  font-weight: 800;
+  grid-column: 1/2;
+}
+.preview__price-discount {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #fafafa;
+  background-color: #1c1917;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  grid-column: 2/-1;
+}
+.preview__price-origin {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #918581;
+  text-decoration: line-through;
+  grid-column: 1/2;
+}
+.preview__tags {
+  display: flex;
+  gap: 1rem;
+}
+.preview__tags-tag {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #fafafa;
+  background-color: #615551;
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
 }
 
 /*# sourceMappingURL=main.css.map */

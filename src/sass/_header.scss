@@ -1,6 +1,6 @@
 .header {
+  height: 15vh;
   padding: 4rem 4rem;
-  background-color: transparent;
 
   display: flex;
   justify-content: space-between;
@@ -30,7 +30,7 @@
 
   &__field {
     font-family: inherit;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     width: 30rem;
     color: inherit;
     background: none;
@@ -48,6 +48,7 @@
   &__btn {
     font-family: inherit;
     font-weight: 600;
+    letter-spacing: 1px;
   }
 }
 
@@ -71,10 +72,10 @@
     text-transform: uppercase;
     color: inherit;
     height: 100%;
+    padding: 0 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0 1.5rem;
     transition: all 0.2s;
 
     display: flex;

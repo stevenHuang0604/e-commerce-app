@@ -10,7 +10,7 @@
     <title>E-Commerce</title>
   </head>
   <body>
-    <header class="header" role="banner">
+    <header class="header">
       <div class="header__heading">Online Shopping</div>
 
       <form class="search">
@@ -40,7 +40,7 @@
                       <use href="src/img/icons.svg#icon-alert-triangle"></use>
                     </svg>
                   </div>
-                  <p>No bookmarks yet. Find a nice product and bookmark it</p>
+                  <p>No bookmarks yet. Find a nice product and bookmark it!</p>
                 </div>
               </ul>
             </div>
@@ -48,5 +48,48 @@
         </ul>
       </nav>
     </header>
+
+    <div class="main-container">
+      <aside class="aside">
+        <h2 class="aside__heading">Filter</h2>
+        <form class="filter">
+          <div class="filter__item filter__item--price">
+            <div class="filter__item--sort-way">Price</div>
+            <input class="filter__item--input filter__item--input-1" type="radio" name="price" id="ascendent" />
+            <label class="filter__item--label filter__item--label-1" for="ascendent">Ascendent</label>
+            <input class="filter__item--input filter__item--input-2" type="radio" name="price" id="decendent" />
+            <label class="filter__item--label filter__item--label-2" for="decendent">Decendent</label>
+          </div>
+
+          <div class="filter__item filter__item--rating">
+            <div class="filter__item--sort-way">Rating</div>
+            <input class="filter__item--input filter__item--input-1" type="radio" name="rating" id="HighToLow" />
+            <label class="filter__item--label filter__item--label-1" for="HighToLow">High to low</label>
+            <input class="filter__item--input filter__item--input-2" type="radio" name="rating" id="LowToHigh" />
+            <label class="filter__item--label filter__item--label-2" for="LowToHigh">Low to High</label>
+          </div>
+        </form>
+      </aside>
+      <main class="search-results">
+        <ul class="results">
+          <li class="preview">
+            <a class="preview__link preview__link--active" href="#23456">
+              <figure class="preview__fig">
+                <img src="src/img/test-1.jpg" alt="Test" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+                <p class="preview__publisher">The Pioneer Woman</p>
+                <div class="preview__user-generated">
+                  <svg>
+                    <use href="src/img/icons.svg#icon-user"></use>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </main>
+    </div>
   </body>
 </html>

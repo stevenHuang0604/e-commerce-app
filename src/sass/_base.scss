@@ -33,3 +33,10 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.main-container {
+  height: 85vh;
+
+  display: flex;
+  align-items: stretch;
+}

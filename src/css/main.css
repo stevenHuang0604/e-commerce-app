@@ -19,9 +19,15 @@ body {
   box-sizing: border-box;
 }
 
+.main-container {
+  height: 85vh;
+  display: flex;
+  align-items: stretch;
+}
+
 .header {
+  height: 15vh;
   padding: 4rem 4rem;
-  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,7 +53,7 @@ body {
 }
 .search__field {
   font-family: inherit;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   width: 30rem;
   color: inherit;
   background: none;
@@ -62,6 +68,7 @@ body {
 .search__btn {
   font-family: inherit;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .nav {
@@ -82,10 +89,10 @@ body {
   text-transform: uppercase;
   color: inherit;
   height: 100%;
+  padding: 0 1.5rem;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0 1.5rem;
   transition: all 0.2s;
   display: flex;
   align-items: center;
@@ -165,6 +172,7 @@ body {
 .message svg {
   height: 3rem;
   width: 3rem;
+  fill: currentColor;
   transform: translateY(-0.3rem);
 }
 .message p {
@@ -172,6 +180,57 @@ body {
   font-weight: 600;
   line-height: 1.5;
   margin-left: 1.5rem;
+}
+
+.aside {
+  padding: 5rem 2.5rem;
+  flex-basis: 20%;
+}
+.aside__heading {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.filter__item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+.filter__item--sort-way {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  grid-column: 1/span 2;
+  grid-row: 1/2;
+}
+.filter__item--input-1 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.filter__item--input-2 {
+  grid-column: 2/3;
+  grid-row: 3/-1;
+}
+.filter__item--label-1 {
+  grid-column: 3/-1;
+  grid-row: 2/3;
+}
+.filter__item--label-2 {
+  grid-column: 3/-1;
+  grid-row: 3/-1;
+}
+
+.search-results {
+  flex: 1;
+  padding: 5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

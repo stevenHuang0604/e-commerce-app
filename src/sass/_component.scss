@@ -37,7 +37,30 @@
   }
 }
 
-.message {
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+
+  svg {
+    height: 6rem;
+    width: 6rem;
+    fill: $color-grey-dark-1;
+    animation: rotate 2s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.message,
+.error {
   max-width: 40rem;
   padding: 5rem 4rem;
   margin: 0 auto;
@@ -57,4 +80,18 @@
     line-height: 1.5;
     margin-left: 1.5rem;
   }
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color-black, 0.8);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hidden {
+  display: none;
 }

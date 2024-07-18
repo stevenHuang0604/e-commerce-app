@@ -3,7 +3,9 @@ import View from './View.js';
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks__list');
 
-  addHandlerRender(handler) {}
+  addHandlerRender(handler) {
+    handler();
+  }
 
   _generateMarkup() {
     const markup = this._data

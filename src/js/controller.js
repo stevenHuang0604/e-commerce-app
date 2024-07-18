@@ -8,7 +8,6 @@ import bookmarksView from './views/bookmarksView.js';
 const controlProducts = async () => {
   try {
     const id = window.location.hash.slice(1);
-
     if (!id) return;
 
     //  Load product
@@ -46,12 +45,6 @@ const controlClose = () => {
   // Back to original page
   model.getHomeQueryUrl();
 
-  // Get query
-  const query = model.getQuery();
-
-  // Set URL qeury params
-  // model.setQueryUrl(query);
-
   // Render results
   resultView.render(model.getSearchResults());
 };
@@ -62,12 +55,14 @@ const controlBookmarks = () => {
 
 const controlAddBookmark = () => {
   // Add/Remove bookmark
-  if (!model.state.product.bookmarked) model.addBookmark(model.state.product);
-  else model.deleteBookmark(model.state.product.id);
+  if (!model.state.product?.bookmarked) {
+    model.addBookmark(model.state.product);
+  } else {
+    model.deleteBookmark(model.state.product.id);
+  }
 
   // Render product view
   productView.update(model.state.product);
-  console.log(model.state);
 
   // Render bookmarks
   bookmarksView.render(model.state.bookmarks);
@@ -82,8 +77,16 @@ const init = () => {
 
   // Close modal
   productView.addHandlerClose(controlClose);
+
+  // Add product to bookmark
   productView.addHandlerAddBookmark(controlAddBookmark);
+
+  // Render bookmark
   bookmarksView.addHandlerRender(controlBookmarks);
 };
 
-init();
+window.addEventListener('DOMContentLoaded', () => {
+  model.getHomeQueryUrl();
+
+  init();
+});

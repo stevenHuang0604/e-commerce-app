@@ -9,7 +9,6 @@ class ProductView extends View {
 
   addHandlerClose(handler) {
     const observer = new MutationObserver((mutations) => {
-      console.log(mutations);
       for (let mutation of mutations) {
         if (mutation.type === 'childList') {
           const closeEl = this._parentElement.querySelector('.modal__close');

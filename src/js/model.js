@@ -16,7 +16,9 @@ export const loadSearchResults = async (query) => {
     console.log(data);
 
     state.search.query = query;
-    state.search.results = data.products;
+    state.search.results = data.products.map((product) => {
+      return { ...product, bookmarked: false };
+    });
   } catch (err) {
     throw err;
   }
@@ -24,8 +26,11 @@ export const loadSearchResults = async (query) => {
 
 export const loadProductById = async (id) => {
   try {
+    // Check product is in the bookmarks
     const product = await AJAX(`${API_URL}/${id}`);
-    state.product = product;
+    const isInBookmark = state.bookmarks.some((bookmark) => +bookmark.id === +id);
+
+    state.product = isInBookmark ? { ...product, bookmarked: true } : { ...product, bookmarked: false };
   } catch (err) {
     throw err;
   }
@@ -44,12 +49,22 @@ const persistBookmarks = () => {
 };
 
 export const addBookmark = (product) => {
-  // Add bookmark
-  state.bookmarks.push(product);
+  // Check product is in the bookmarks already
+  const isInBookmarks = state.bookmarks.some((bookmark) => +bookmark.id === product.id);
+  state.product.bookmarked = true;
+  state.search.results = state.search.results.map((result) => {
+    if (result.id === product.id) return { ...result, bookmarked: true };
+    else return { ...result };
+  });
 
-  // Mark current product as bookmark
-  if (product.id === state.product.id) state.product.bookmarked = true;
-  persistBookmarks();
+  if (!isInBookmarks) {
+    // Add bookmark
+    state.bookmarks.push(product);
+
+    // Mark current product as bookmark
+    // if (product.id === state.product.id) state.product.bookmarked = true;
+    persistBookmarks();
+  }
 };
 
 export const deleteBookmark = (id) => {
@@ -65,6 +80,7 @@ export const deleteBookmark = (id) => {
 const init = () => {
   const storage = localStorage.getItem('bookmarks');
   if (storage) state.bookmarks = JSON.parse(storage);
+  console.log('Successfully get localStroage');
 };
 
 init();

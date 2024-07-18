@@ -1,16 +1,46 @@
 .header {
   height: 15vh;
-  padding: 4rem 4rem;
+  padding: 4rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    display: grid;
+    grid-template-areas:
+      'heading heading'
+      'search booking';
+    column-gap: 0;
+    row-gap: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    padding: 0 1rem;
+  }
 
   &__heading {
     font-size: 2.8rem;
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 2.4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2rem;
+      grid-area: heading;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+    }
   }
 }
 
@@ -35,6 +65,14 @@
     color: inherit;
     background: none;
     border: none;
+
+    @media only screen and (max-width: $bp-large) {
+      width: 18rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      width: 80%;
+    }
 
     &:focus {
       outline: none;
@@ -113,6 +151,10 @@
   opacity: 0;
   transition: all 0.5s 0.2s;
 
+  @media only screen and (max-width: $bp-large) {
+    width: 30rem;
+  }
+
   &__list {
     list-style: none;
   }
@@ -130,17 +172,26 @@
     border-radius: 10px;
     box-shadow: 0 0.7rem 3rem rgba($color-black, 0.08);
 
-    display: flex;
-    align-items: center;
+    &-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+    }
 
     &-fig {
-      width: 10rem;
-      height: 10rem;
+      // width: 10rem;
+      // height: 10rem;
       border-radius: 50%;
 
       img {
-        width: 100%;
-        height: 100%;
+        width: 10rem;
+        height: 10rem;
+
+        @media only screen and (max-width: $bp-large) {
+          height: 8rem;
+          width: 8rem;
+        }
       }
     }
 
@@ -149,7 +200,7 @@
     }
 
     &-title {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 700;
       letter-spacing: 2px;
     }

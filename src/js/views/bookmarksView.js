@@ -12,7 +12,7 @@ class BookmarksView extends View {
       .map((d) => {
         return `
       <li class="bookmarks__item">
-        <a href="#${d.id}"}>
+        <a class="bookmarks__item-link" href="#${d.id}"}>
           <figure class="bookmarks__item-fig">
             <img
               src="${d.thumbnail}"

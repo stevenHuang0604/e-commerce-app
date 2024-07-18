@@ -16,7 +16,7 @@ class PreviewView extends View {
                 />
               </figure>
               <div class="preview__data">
-                <p class="preview__brand">${this._data.brand}</p>
+                <p class="preview__rating">${this._data.rating} ✨</p>
                 <h4 class="preview__title">${this._data.title}</h4>
                 <div class="preview__price">
                   <div class="preview__price-sell">$${(

@@ -49,10 +49,10 @@ export const getFilterResults = (type) => {
       state.search.results.sort((a, b) => b.price - a.price);
       break;
     case 'HighToLow':
-      state.search.results.sort((a, b) => a.rating - b.rating);
+      state.search.results.sort((a, b) => b.rating - a.rating);
       break;
     case 'LowToHigh':
-      state.search.results.sort((a, b) => b.rating - a.rating);
+      state.search.results.sort((a, b) => a.rating - b.rating);
       break;
     default:
       state.search.results;

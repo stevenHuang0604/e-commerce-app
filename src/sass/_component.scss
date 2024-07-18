@@ -30,10 +30,19 @@
   font-weight: 600;
   padding: 1.5rem 4rem;
 
+  @media screen and (max-width: $bp-medium) {
+    padding: 1.5rem 2rem;
+  }
+
   svg {
     height: 2.25rem;
     width: 2.25rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-medium) {
+      height: 1.75rem;
+      width: 1.75rem;
+    }
   }
 }
 

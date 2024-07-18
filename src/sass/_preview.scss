@@ -11,7 +11,7 @@
       color: inherit;
       background-color: $color-grey-light-1;
       width: 30rem;
-      height: 50rem;
+      height: 100%;
       padding: 1rem;
       text-decoration: none;
       border-radius: 20px;
@@ -21,6 +21,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      @media only screen and (max-width: $bp-medium) {
+        width: 28rem;
+      }
     }
 
     &:hover {
@@ -35,6 +39,10 @@
 
   &__fig {
     height: 20rem;
+
+    @media only screen and (max-width: $bp-large) {
+      height: 15rem;
+    }
 
     img {
       display: block;
@@ -51,16 +59,28 @@
     flex-direction: column;
   }
 
-  &__brand {
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: $color-grey-dark-2;
+  &__rating {
+    font-size: 1.8rem;
+    font-weight: 800;
+    width: max-content;
+    color: $color-black;
+    background-color: #fef08a;
+    border-radius: 5px;
+    padding: 0 0.8rem;
+    margin-bottom: 1.6rem;
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 1.6rem;
+    }
   }
 
   &__title {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     letter-spacing: 0.5px;
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 2rem;
+    }
   }
 
   &__price {
@@ -101,6 +121,8 @@
   }
 
   &__tags {
+    margin-top: auto;
+
     display: grid;
     grid-template-columns: repeat(2, max-content);
     grid-auto-flow: dense;
@@ -115,6 +137,10 @@
       background-color: $color-grey-dark-1;
       padding: 0.5rem 1rem;
       border-radius: 10rem;
+
+      @media only screen and (max-width: $bp-large) {
+        padding: 0.4rem 0.8rem;
+      }
     }
   }
 }

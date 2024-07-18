@@ -76,7 +76,7 @@ class ProductView extends View {
         </ul>
       </div>
       <div class="modal__content">
-        <p class="modal__rating">${this._data.rating} stars</p>
+        <p class="modal__rating">${this._data.rating} ✨</p>
         <p class="modal__brand">${this._data.brand}</p>
         <h4 class="modal__title">${this._data.title}</h4>
         <p class="modal__description">

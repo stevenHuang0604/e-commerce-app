@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 0));
   gap: 4rem;
+  justify-content: center;
 
   &::-webkit-scrollbar {
     width: 6px;

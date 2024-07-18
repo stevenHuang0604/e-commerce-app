@@ -40,6 +40,28 @@ export const getSearchResults = () => {
   return state.search.results;
 };
 
+export const getFilterResults = (type) => {
+  switch (type) {
+    case 'ascendent':
+      state.search.results.sort((a, b) => a.price - b.price);
+      break;
+    case 'decendent':
+      state.search.results.sort((a, b) => b.price - a.price);
+      break;
+    case 'HighToLow':
+      state.search.results.sort((a, b) => a.rating - b.rating);
+      break;
+    case 'LowToHigh':
+      state.search.results.sort((a, b) => b.rating - a.rating);
+      break;
+    default:
+      state.search.results;
+      break;
+  }
+
+  return state.search.results;
+};
+
 export const getProduct = () => {
   return state.product;
 };
@@ -80,7 +102,7 @@ export const deleteBookmark = (id) => {
 const init = () => {
   const storage = localStorage.getItem('bookmarks');
   if (storage) state.bookmarks = JSON.parse(storage);
-  console.log('Successfully get localStroage');
+  console.log('%c🎉 Successfully get localStroage', 'color: blue');
 };
 
 init();

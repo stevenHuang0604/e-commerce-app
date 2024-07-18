@@ -4,6 +4,7 @@ import searchView from './views/searchView.js';
 import resultView from './views/resultView.js';
 import productView from './views/productView.js';
 import bookmarksView from './views/bookmarksView.js';
+import filterView from './views/filterView.js';
 
 const controlProducts = async () => {
   try {
@@ -68,6 +69,11 @@ const controlAddBookmark = () => {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlFitler = (filterType) => {
+  // Render results
+  resultView.render(model.getFilterResults(filterType));
+};
+
 const init = () => {
   // Search query then render results as preview
   searchView.addHandlerSearch(controlSearchResults);
@@ -83,6 +89,8 @@ const init = () => {
 
   // Render bookmark
   bookmarksView.addHandlerRender(controlBookmarks);
+
+  filterView.addHandlerRender(controlFitler);
 };
 
 window.addEventListener('DOMContentLoaded', () => {

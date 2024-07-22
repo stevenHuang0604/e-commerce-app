@@ -102,6 +102,9 @@ const init = () => {
 
   // Return to home page
   homeView.addHandlerRenderHomePage(controlHomePage);
+
+  // Change modal show image
+  productView.addHandlerChangeImage();
 };
 
 window.addEventListener('DOMContentLoaded', () => {

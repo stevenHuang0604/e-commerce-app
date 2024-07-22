@@ -27,13 +27,33 @@ class ProductView extends View {
     });
 
     observer.observe(this._parentElement, { childList: true, subtree: true });
+  }
 
-    // this._parentElement.querySelector('.overlay').addEventListener('click', (e) => {
-    //   e.target.classList.add('hidden');
-    // });
-    // this._parentElement.querySelector('.modal__close').addEventListener('click', (e) => {
-    //   e.target.classList.add('hidden');
-    // });
+  addHandlerChangeImage() {
+    const observer = new MutationObserver((mutations) => {
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList') {
+          const imgList = this._parentElement.querySelector('.modal__images-list');
+
+          if (imgList) {
+            imgList.addEventListener('click', (e) => {
+              const selectImgId = e.target.closest('.modal__images-item')?.id;
+
+              if (selectImgId) {
+                this._parentElement.querySelector('.modal__images-show').innerHTML = `
+                <img
+                  src="${this._data.images[selectImgId - 1]}"
+                  alt="Test"
+                />
+                `;
+              }
+            });
+          }
+        }
+      }
+    });
+
+    observer.observe(this._parentElement, { childList: true, subtree: true });
   }
 
   addHandlerAddBookmark(handler) {
@@ -58,9 +78,9 @@ class ProductView extends View {
 
         <ul class="modal__images-list">
           ${this._data.images
-            .map((img) => {
+            .map((img, i) => {
               return `
-            <li class="modal__images-item">
+            <li class="modal__images-item" id="${i + 1}">
             <button>
               <figure class="modal__images-item--small">
                 <img

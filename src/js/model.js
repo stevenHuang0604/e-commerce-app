@@ -1,13 +1,24 @@
 import { API_URL } from './config.js';
 import { AJAX } from './helper.js';
 
-export const state = {
+export let state = {
   product: {},
   search: {
     query: '',
     results: [],
   },
   bookmarks: [],
+};
+
+export const clearState = () => {
+  state = {
+    product: {},
+    search: {
+      query: '',
+      results: [],
+    },
+    bookmarks: [],
+  };
 };
 
 export const loadSearchResults = async (query) => {

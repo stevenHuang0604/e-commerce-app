@@ -5,6 +5,7 @@ import resultView from './views/resultView.js';
 import productView from './views/productView.js';
 import bookmarksView from './views/bookmarksView.js';
 import filterView from './views/filterView.js';
+import homeView from './views/homeView.js';
 
 const controlProducts = async () => {
   try {
@@ -74,6 +75,12 @@ const controlFitler = (filterType) => {
   resultView.render(model.getFilterResults(filterType));
 };
 
+const controlHomePage = () => {
+  model.clearState();
+
+  resultView.render(model.getSearchResults());
+};
+
 const init = () => {
   // Search query then render results as preview
   searchView.addHandlerSearch(controlSearchResults);
@@ -90,7 +97,11 @@ const init = () => {
   // Render bookmark
   bookmarksView.addHandlerRender(controlBookmarks);
 
+  // Filter preview
   filterView.addHandlerRender(controlFitler);
+
+  // Return to home page
+  homeView.addHandlerRenderHomePage(controlHomePage);
 };
 
 window.addEventListener('DOMContentLoaded', () => {

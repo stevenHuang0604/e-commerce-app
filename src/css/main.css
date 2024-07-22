@@ -68,10 +68,16 @@ body {
   }
 }
 .header__heading {
+  font-family: inherit;
   font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 @media only screen and (max-width: 61.25em) {
   .header__heading {
@@ -595,7 +601,8 @@ body {
 }
 .modal__images-list {
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 2rem;
 }

@@ -2,6 +2,7 @@ import View from './View.js';
 
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks__list');
+  _errorMessage = 'No products in bookmarks! Please add some items.';
 
   addHandlerRender(handler) {
     handler();
